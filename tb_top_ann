@@ -1,0 +1,17 @@
+module tb_top_ann;
+    reg clk = 0;
+    wire [3:0] predicted_digit;
+
+    top_ann uut (
+        .clk(clk),
+        .predicted_digit(predicted_digit)
+    );
+
+    always #5 clk = ~clk;
+
+    initial begin
+        #200;
+        $display("Predicted digit = %d", predicted_digit);
+        $finish;
+    end
+endmodule
